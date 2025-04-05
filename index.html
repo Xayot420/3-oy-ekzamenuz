@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahsulot Katalogi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="light-mode">
+    <div class="container max-w-screen-xl mx-auto p-4">
+        <div class="flex flex-col items-center mb-4">
+            <h1 class="text-3xl font-bold text-blue-500 text-center">Mahsulot Katalogi</h1>
+            <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center filters">
+                <select id="category-filter" class="p-2 border rounded w-full sm:w-auto">
+                    <option value="all">Barcha Kategoriyalar</option>
+                    <option value="men's clothing">Men's Clothing</option>
+                    <option value="jewelery">Jewelery</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="women's clothing">Women's Clothing</option>
+                </select>
+                <select id="price-sort" class="p-2 border rounded w-full sm:w-auto">
+                    <option value="default">Narx bo‘yicha</option>
+                    <option value="asc">O'sish tartibida</option>
+                    <option value="desc">Kamayish tartibida</option>
+                </select>
+                <input type="text" id="search-box" placeholder="Mahsulot qidirish..." class="p-2 border rounded w-full sm:w-auto">
+                <div class="flex gap-2">
+                    <button id="theme-toggle" class="p-2 border rounded">🌙</button>
+                    <button id="cart-toggle" class="p-2 border rounded">🛒 Mening Savatim</button>
+                </div>
+            </div>
+        </div>
+        <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </div>
+
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="bg-white p-4 rounded-lg w-11/12 sm:w-1/2 mx-auto mt-20 relative">
+            <button id="close-cart" class="absolute top-0 right-0 p-2">X</button>
+            <h2 class="text-2xl font-bold mb-4">Savatim</h2>
+            <div id="cart-items"></div>
+            <div class="mt-4 text-lg font-bold">
+                Umumiy Hisob: $<span id="total-price">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
+    
